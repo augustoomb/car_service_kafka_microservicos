@@ -1,7 +1,7 @@
-package com.portal.api.controller;
+package com.store.car.controller;
 
-import com.portal.api.dto.OwnerPostDTO;
-import com.portal.api.service.OwnerPostService;
+import com.store.car.dto.OwnerPostDTO;
+import com.store.car.service.OwnerPostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,22 +9,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j // <-- Isso aqui cria automaticamente a variável 'log' para você
 @RestController
-@RequestMapping("/owner")
+@RequestMapping("/user")
 public class OwnerPostController {
 
     @Autowired
     private OwnerPostService ownerPostService;
 
     @PostMapping
-    public ResponseEntity createOwnerCar(@RequestBody OwnerPostDTO ownerPostDTO) {
-
-        log.info("Dados recebidos: {}", ownerPostDTO);
-
-        ownerPostService.createOwnerCar(ownerPostDTO);
+    public ResponseEntity createOwner(@RequestBody OwnerPostDTO ownerPostDTO) {
+        ownerPostService.createOwnerPost(ownerPostDTO);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }
