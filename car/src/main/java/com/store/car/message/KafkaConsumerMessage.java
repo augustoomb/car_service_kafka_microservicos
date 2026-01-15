@@ -22,7 +22,7 @@ public class KafkaConsumerMessage {
     @KafkaListener(topics = "car-post-topic", groupId = "store-posts-group") // É UM LISTENER. VAI FICAR OUVINDO ESSE TOPICO DO APACHE KAFKA
     public void listening(CarPostDTO carPost) {
 
-        LOG.info("Received Car Post information: {}", carPost);
+        LOG.info("CAR STORE - Received Car Post information: {}", carPost);
         carPostService.newPostDetails(carPost);
     }
 

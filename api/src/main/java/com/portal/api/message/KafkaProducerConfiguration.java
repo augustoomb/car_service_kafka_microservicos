@@ -45,3 +45,33 @@ public class KafkaProducerConfiguration {
         return new KafkaTemplate<>(userProducerFactory());
     }
 }
+
+/*
+
+Em Java, Map é uma interface que define o contrato para coleções de pares chave-valor,
+enquanto HashMap é uma classe concreta que implementa essa interface,
+oferecendo a implementação mais comum e rápida para buscas, mas sem garantir ordem.
+A escolha depende da necessidade: use Map para flexibilidade (tipo HashMap<K, V> map = new HashMap<>();)
+se não precisar de ordem, ou outras classes como TreeMap (chaves ordenadas) ou LinkedHashMap (ordem de inserção) se precisar de ordem específica.
+
+Map (Interface)
+    Define o "o quê" (contrato) de um mapa: um conjunto de pares chave-valor.
+    Permite que você escreva código genérico que funciona com qualquer tipo de Map.
+
+HashMap (Classe)
+    Implementa Map usando uma tabela de hash.
+
+Performance: Muito rápida para operações de get() e put() (em média O(1)).
+
+Ordem: Não garante ordem (elementos podem mudar de lugar).
+
+Uso: Ideal para a maioria dos casos onde velocidade é crucial e ordem não importa.
+
+Outras Implementações Comuns de Map
+    TreeMap: Mantém as chaves ordenadas (naturalmente ou por Comparator), boa para mapas ordenados, mas um pouco mais lenta que HashMap.
+    LinkedHashMap: Mantém a ordem em que os elementos foram inseridos, sendo útil para iterar na mesma ordem de adição.
+
+Em resumo: Declare a variável como a interface Map e instancie com HashMap (ou outra classe) para maior flexibilidade.
+Use HashMap por padrão, a menos que precise de ordenação específica.
+
+ */
